@@ -1,0 +1,123 @@
+<h1>Arma tu PC</h1>
+<p>
+    Tamaño de la RAM:
+    @for (botones of ramSize;  track $index) {
+         {{botones.nombre}}
+
+         <input type="radio"  name="ramSize" [value]="botones.nombre" [(ngModel)]= "ramElegida"/>
+         
+    } @empty {
+        <p>Sin datos de RAM</p>
+    }
+</p>
+
+<p>
+    Tipo de procesador: 
+   
+        <select [(ngModel)]="procesadorElegido" name="procesadores">
+            @for (procesadores of tipoProcesador; track $index) {
+                <option [value]="procesadores.nombre">{{procesadores.nombre}}</option>
+            }
+        </select>
+
+    
+</p>
+
+<p>
+
+    Tarjeta Gráfica: 
+    <input type="checkbox" [(ngModel)]="tarjetaGrafica">
+</p>
+
+<p>
+
+    Discos Duros:
+
+    @for (discos of discosDuros; track $index) {
+        
+        {{discos.nombre}}
+        <input type="radio" name="discos" [value]="discos.nombre" [(ngModel)]="discoElegido"> 
+    }
+</p>
+
+<p>
+    Fuentes alimentación: 
+   
+        <select [(ngModel)]="fuenteElegida" name="fuentes">
+            @for (fuentes of fuentesAlimentacion; track $index) {
+                <option [value]="fuentes.nombre">{{fuentes.nombre}}</option>
+            }
+        </select>
+
+    
+</p>
+
+<p>
+
+    <button (click)="imprimir()">Mostrar información</button>
+</p>
+
+<h1>Reserva de vuelos</h1>
+<p>Origen:</p>
+<select [(ngModel)]="origenElegido" name="origenes">
+
+@for (origenes of origen; track origenes.nombre) {
+    <option [value]="origenes.nombre">{{origenes.nombre}}</option>
+}
+
+</select><br>
+<p>Destinos:</p>
+<select [(ngModel)]="destinoElegido" name="destinos">
+
+    @for (destino of destinos; track $index) {
+        <option [value]="destino.nombre">{{destino.nombre}}</option>
+    }
+    
+    </select><br>
+
+<p>Fecha de ida</p>
+<input type="date" [(ngModel)]="fechaElegidaIda"><br>
+<p>Fecha de vuelta</p>
+<input type="date" [(ngModel)]="fechaElegidaVuelta"><br>
+<p>Número de pasajeros</p>
+<input type="number" [(ngModel)]="numPasajeros"><br>
+<button (click)="mostrarDatosVuelo()">Mostrar información</button>
+
+<h1>Usando directivas</h1>
+
+<p>
+    Género: 
+    @for (generos of genero; track $index) {
+        {{generos.nombre}}
+
+        <input type="radio" name="gen" [value] = "generos.nombre" [(ngModel)]="generoElegido">
+    }
+</p>
+
+<p>
+    Nacionalidades
+
+    <select [(ngModel)]="this.nacionalidadElegida" name="nacionalidades">
+
+        @for (nacion of nacionalidades; track $index) {
+            <option [value]="nacion.nombre">{{nacion.nombre}}</option>
+        }
+    
+    
+    </select>
+</p>
+<p>
+    Lenguajes de programación: 
+    @for (lenguaje of lenguajesProgramacion; track $index) {
+        {{lenguaje.nombre}}
+
+        <input type="checkbox"  [value] = "lenguaje.nombre" [(ngModel)]="lenguaje.id">
+    }
+</p>
+
+<p>
+
+<button (click)="mostrarDatosPersona()">prueba</button>
+
+</p>
+
